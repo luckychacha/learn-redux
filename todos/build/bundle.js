@@ -24435,17 +24435,25 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var linkKM = function linkKM(ownState) {
-    switch (ownState) {
-        case 'SHOW_ALL':
-            return 'all';
-        case 'SHOW_COMPLETED':
-            return 'completed';
-        case 'SHOW_ACTIVE':
-            return 'active';
-        default:
-            return 'hehe';
-    }
+//const linkKM = (ownState) => {
+//    switch(ownState) {
+//        case 'SHOW_ALL' :
+//            return 'all'
+//        case 'SHOW_COMPLETED' :
+//            return 'completed'
+//        case 'SHOW_ACTIVE' :
+//            return 'active'
+//        default:
+//            return 'hehe'
+//    }
+//}
+//函数的调用方法
+//{linkKM(ownState)}
+
+var linkKM = {
+    'SHOW_ALL': 'all',
+    'SHOW_COMPLETED': 'completed',
+    'SHOW_ACTIVE': 'active'
 };
 
 var Link = function Link(_ref) {
@@ -24460,7 +24468,7 @@ var Link = function Link(_ref) {
             _react2.default.createElement(
                 'span',
                 null,
-                linkKM(ownState)
+                linkKM[ownState]
             )
         );
     }
@@ -24477,7 +24485,7 @@ var Link = function Link(_ref) {
                     _onClick();
                 }
             },
-            linkKM(ownState)
+            linkKM[ownState]
         )
     );
 };
