@@ -11,7 +11,7 @@ let AddTodo = ({dispatch}) => {
         <form action="" onSubmit={e => {
                         e.preventDefault()
                         if(!input.value.trim()) {
-                            return false;
+                            return
                         }
                         {dispatch(addTodo(input.value))}
                         input.value = ''
