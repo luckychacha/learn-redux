@@ -1,6 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router'
 
-import Link from './Link'
+const linkMap = {
+    'SHOW_ALL': 'all',
+    'SHOW_ACTIVE': 'active',
+    'SHOW_COMPLETED': 'completed'
+}
 
 const FilterLink = ({ currState, filterOnClick }) => {
     return (
@@ -8,15 +13,18 @@ const FilterLink = ({ currState, filterOnClick }) => {
             {
                 ['SHOW_ALL', 'SHOW_ACTIVE', 'SHOW_COMPLETED'].map((v, k) =>
                     <Link
-                        key={k}
-                        active={v === currState}
-                        ownFilter={v}
-                        onClick={()=>filterOnClick(v)}
-                    />
+                        to={v === 'SHOW_ALL' ? '' : linkMap[v]}
+                        activeStyle={{
+                          textDecoration: 'none',
+                          color: 'black'
+                        }}
+                    >
+                        {linkMap[v]}{" "}
+                    </Link>
                 )
             }
         </ul>
     )
 }
 
-export default FilterLink
+export default FilterLink;

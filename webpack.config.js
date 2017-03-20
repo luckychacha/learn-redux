@@ -14,5 +14,8 @@ module.exports = {
                 exclude: /node-module/
             }
         ]
+    },
+    devServer: {
+        historyApiFallback: true,
     }
 }

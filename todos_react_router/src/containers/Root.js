@@ -2,6 +2,8 @@ import React from 'react'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
+import { Router, Route, browserHistory } from 'react-router'
+
 import App from './App'
 
 import reducers from '../reducers'
@@ -10,7 +12,9 @@ const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && windo
 
 const Root = () => (
     <Provider store={store}>
-        <App />
+        <Router history={ browserHistory }>
+            <Route path="/(:filter)" component={App} />
+        </Router>
     </Provider>
 )
 
