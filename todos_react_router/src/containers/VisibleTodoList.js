@@ -7,18 +7,18 @@ import { toggleTodo } from '../actions'
 
 const filterTodoList = (todos, visibilityFilter) => {
     switch (visibilityFilter) {
-        case 'SHOW_ALL':
+        case 'all':
             return todos
-        case 'SHOW_ACTIVE':
+        case 'active':
             return todos.filter(todo => !todo.completed)
-        case 'SHOW_COMPLETED':
+        case 'completed':
             return todos.filter(todo => todo.completed)
     }
 }
 
 
-const mapStateToProps = (state) => ({
-    todos: filterTodoList(state.todos, state.visibilityFilter)
+const mapStateToProps = (state, ownProps) => ({
+    todos: filterTodoList(state.todos, ownProps.filter)
 })
 
 const mapDispatchToProps = {

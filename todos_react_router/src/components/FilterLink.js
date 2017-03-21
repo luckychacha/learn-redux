@@ -13,11 +13,12 @@ const FilterLink = ({ currState, filterOnClick }) => {
             {
                 ['SHOW_ALL', 'SHOW_ACTIVE', 'SHOW_COMPLETED'].map((v, k) =>
                     <Link
-                        to={v === 'SHOW_ALL' ? '' : linkMap[v]}
+                        to={v === 'SHOW_ALL' ? '/' : linkMap[v]}
                         activeStyle={{
                           textDecoration: 'none',
                           color: 'black'
                         }}
+                        onClick={()=>filterOnClick(v)}
                     >
                         {linkMap[v]}{" "}
                     </Link>

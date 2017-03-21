@@ -29603,10 +29603,13 @@ var FilterLink = function FilterLink(_ref) {
             return _react2.default.createElement(
                 _reactRouter.Link,
                 {
-                    to: v === 'SHOW_ALL' ? '' : linkMap[v],
+                    to: v === 'SHOW_ALL' ? '/' : linkMap[v],
                     activeStyle: {
                         textDecoration: 'none',
                         color: 'black'
+                    },
+                    onClick: function onClick() {
+                        return filterOnClick(v);
                     }
                 },
                 linkMap[v],
@@ -29783,12 +29786,15 @@ var _Footer2 = _interopRequireDefault(_Footer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var App = function App() {
+var App = function App(_ref) {
+    var params = _ref.params;
     return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(_AddTodo2.default, null),
-        _react2.default.createElement(_VisibleTodoList2.default, null),
+        _react2.default.createElement(_VisibleTodoList2.default, {
+            filter: params.filter || 'all'
+        }),
         _react2.default.createElement(_Footer2.default, null)
     );
 };
@@ -29861,22 +29867,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var filterTodoList = function filterTodoList(todos, visibilityFilter) {
     switch (visibilityFilter) {
-        case 'SHOW_ALL':
+        case 'all':
             return todos;
-        case 'SHOW_ACTIVE':
+        case 'active':
             return todos.filter(function (todo) {
                 return !todo.completed;
             });
-        case 'SHOW_COMPLETED':
+        case 'completed':
             return todos.filter(function (todo) {
                 return todo.completed;
             });
     }
 };
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapStateToProps = function mapStateToProps(state, ownProps) {
     return {
-        todos: filterTodoList(state.todos, state.visibilityFilter)
+        todos: filterTodoList(state.todos, ownProps.filter)
     };
 };
 
