@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { Router, Route, browserHistory } from 'react-router'
 
 import App from './App'
+import Footer from './Footer'
 
 import reducers from '../reducers'
 

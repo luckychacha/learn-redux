@@ -14754,7 +14754,7 @@ function mapStateToProps(state) {
 
     return {
         selectedSubreddit: selectedSubreddit,
-        posts: posts,
+        items: items,
         isFetching: isFetching,
         lastUpdated: lastUpdated
     };

@@ -13,6 +13,7 @@ const FilterLink = ({ currState, filterOnClick }) => {
             {
                 ['SHOW_ALL', 'SHOW_ACTIVE', 'SHOW_COMPLETED'].map((v, k) =>
                     <Link
+                        key={k}
                         to={v === 'SHOW_ALL' ? '/' : linkMap[v]}
                         activeStyle={{
                           textDecoration: 'none',
