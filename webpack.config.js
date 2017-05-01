@@ -1,9 +1,9 @@
 var webpack = require('webpack')
 
 module.exports = {
-    entry: "./reddit_api/src/index.js",
+    entry: "./multiple/src/index.js",
     output: {
-        path: './reddit_api/build/',
+        path: './multiple/build/',
         filename: "bundle.js"
     },
     module: {
