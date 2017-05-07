@@ -1,9 +1,10 @@
 import React from 'react'
 import Head from './Head'
+import AddTodo from '../component/Todo/AddTodo'
 
-const Todo = () => (
+const Todo = ({ dispatch }) => (
     <div>
-        Todo组件展示
+        <AddTodo/>
     </div>
 )
 

@@ -5,7 +5,7 @@ import Store from './configureStore'
 
 import App from './containers/App'
 
-const store = {Store}
+const store = Store()
 render(
     <Provider store={store}>
         <App />

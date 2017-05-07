@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
-class Head extends Component{
+class Head extends Component {
     render() {
         return (
             <div>
