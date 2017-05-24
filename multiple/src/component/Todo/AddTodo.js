@@ -14,15 +14,19 @@ class AddTodo extends Component {
             todoItem : ''
         }
         this.dispatch = this.props.dispatch
+        this.addTodoDispatch = this.props.addTodoDispatch
         this.addTodo = this.addTodo.bind(this)
         this.handleChange = handleChange.bind(this)
+
     }
 
     addTodo() {
         if(!this.state.todoItem.trim()) {
             return
         }
-        this.props.dispatch(addTodo(this.state.todoItem))
+        console.log(this.props)
+        //this.props.dispatch(addTodo(this.state.todoItem))
+        this.addTodoDispatch(this.state.todoItem)
         this.init()
     }
 
