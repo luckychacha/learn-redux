@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-import { connect } from 'react-redux'
-
 import { addTodo } from '../../actions/index'
 
 import handleChange from '../../utils/handleChange'
@@ -14,7 +12,7 @@ class AddTodo extends Component {
             todoItem : ''
         }
         this.dispatch = this.props.dispatch
-        this.addTodoDispatch = this.props.addTodoDispatch
+        //this.addTodoDispatch = this.props.addTodoDispatch
         this.addTodo = this.addTodo.bind(this)
         this.handleChange = handleChange.bind(this)
 
@@ -24,9 +22,7 @@ class AddTodo extends Component {
         if(!this.state.todoItem.trim()) {
             return
         }
-        console.log(this.props)
-        //this.props.dispatch(addTodo(this.state.todoItem))
-        this.addTodoDispatch(this.state.todoItem)
+        this.props.addTodoDispatch(this.state.todoItem)
         this.init()
     }
 
@@ -57,7 +53,5 @@ class AddTodo extends Component {
         )
     }
 }
-
-AddTodo = connect()(AddTodo)
 
 export default AddTodo
